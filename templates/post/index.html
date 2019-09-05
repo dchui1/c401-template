@@ -1,0 +1,10 @@
+<h1>POST Example</h1>
+
+
+<form action="/example/submit" method="post">
+  {% csrf_token %}
+
+  <input type="text" name="value"></input>
+  <input type="submit" value="Submit">
+</form>
+<p>{{ message }}</p>

@@ -1,0 +1,11 @@
+<h1>POST Example</h1>
+
+
+<form action="/example/submitMessage" method="post">
+  {% csrf_token %}
+  <p>Message ID:</p>
+  <input type="text" name="message_id"></input>
+  <p>Message String:</p>
+  <input type="text" name="messageString"></input>
+  <input type="submit" value="Submit">
+</form>
