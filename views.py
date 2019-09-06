@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 import requests
 from .models import Message
+
 url = "http://localhost:8000" #Replace
 # Create your views here.
 def get(request):
