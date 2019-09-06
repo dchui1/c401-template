@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 import requests
 from .models import Message
 
-url = "http://localhost:8000" + "/api/" #Replace
+base_url = "http://localhost:8000" #Replace
 # Create your views here.
 
 def get(request):
-    r = requests.get(url)
+    r = requests.get(base_url + "/api/")
     response = r.json()
     if response["status"] == True:
         context = { 'message' : response["message"] }
@@ -14,10 +14,12 @@ def get(request):
 
 
 def post(request):
+
     context = { 'message': "This is the default message"}
     return render(request, "post/index.html", context)
 
 def submit(request):
+    request_url = base_url + "/api/generate"
     # Add code to call api and fetch result, and display result instead of the input
     context = {'message': input}
     return render(request, "post/index.html", context)
