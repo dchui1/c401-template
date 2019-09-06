@@ -4,6 +4,7 @@ from .models import Message
 
 url = "http://localhost:8000" + "/api/" #Replace
 # Create your views here.
+
 def get(request):
     r = requests.get(url)
     response = r.json()
@@ -17,12 +18,7 @@ def post(request):
     return render(request, "post/index.html", context)
 
 def submit(request):
-
-    print("Submit called")
-    print(request.method)
-    input = request.POST['value']
-    print('input')
-    # Add code to call api to hash value
+    # Add code to call api and fetch result, and display result instead of the input
     context = {'message': input}
     return render(request, "post/index.html", context)
 
@@ -36,5 +32,7 @@ def storeMessage(request):
     return redirect(addMessage)
 
 def getMessage(request):
-    # Add code to retrieve message with a given message_id
+    # message = Message.objects.get(id=id)
+    # Add code to retrieve message with a given message_id.
+    # An example of how to retrieve a message with a given id is provided above
     return render(request, "messages/getMessage.html", context)
