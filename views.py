@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 import requests
 from .models import Message
 
-url = "http://localhost:8000" #Replace
+url = "http://localhost:8000" + "/api/" #Replace
 # Create your views here.
 def get(request):
-    r = requests.get(url+"/api/")
+    r = requests.get(url)
     response = r.json()
     if response["status"] == True:
         context = { 'message' : response["message"] }
